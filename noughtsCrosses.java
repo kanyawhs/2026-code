@@ -25,7 +25,7 @@ public class noughtsCrosses
                 board[i][j]= "[ ]";
             }
         }
-        for (int i = 0l i < board.length; i++) { // prints grid
+        for (int i = 0; i < board.length; i++) { // prints grid
             for (int j = 0; j < board[0].length; j++) {
                 System.out.println(board[i][j] + " ");
             }
