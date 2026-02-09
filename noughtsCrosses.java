@@ -20,12 +20,18 @@ public class noughtsCrosses
      */
     public noughtsCrosses()
     {
-        for (int i = 0; i < board.length; i++) {
+        for (int i = 0; i < board.length; i++) { // initializes grid
             for (int j = 0; j < board[0].length; j++) {
                 board[i][j]= "[ ]";
             }
+        }
+        for (int i = 0l i < board.length; i++) { // prints grid
+            for (int j = 0; j < board[0].length; j++) {
+                System.out.println(board[i][j] + " ");
+            }
             System.out.println(" ");
         }
+        
         System.out.println(Arrays.toString(board));
         System.out.println(board);
         player1Turn();
