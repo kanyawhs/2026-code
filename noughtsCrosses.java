@@ -3,7 +3,7 @@
  * This is the game noughts and crosses!
  *
  * @author Kanya Farley
- * @version 17/2/2026
+ * @version 18/2/2026
  */
 import java.util.Scanner;
 import java.util.Arrays;
@@ -21,6 +21,7 @@ public class noughtsCrosses
     char p1 = '◯';
     char p2 = 'X';
     File save = new File("last_save.txt");
+    boolean saveG = false;
     /**
      * Constructor for objects of class noughtsCrosses
      */
@@ -35,6 +36,7 @@ public class noughtsCrosses
         printBoard();
         System.out.println(Arrays.toString(board));
         System.out.println(board);
+        // below while loop runs the game! I think there's something wrong though...
         while (true) {
             if (player1wins() == false && player2wins() == false) {
                 player1Turn();
@@ -50,16 +52,6 @@ public class noughtsCrosses
             player2wins();
             saveGame();
         }
-        /*if (Winner(board, p1)) { // unsure how to solve this but will check later
-                printBoard();
-                System.out.println("Player 1 (noughts) wins!"); 
-            } else if (Winner(board, p2)) {
-                printBoard();
-                System.out.println("Player 2 (crosses) wins!");
-            } else if (moves == 9) {
-                printBoard();
-                System.out.println("It's a draw!");
-            }*/
     }
     
     public void printBoard() {
@@ -78,11 +70,13 @@ public class noughtsCrosses
     }
     
     public void player1Turn() {
-        System.out.println("It is player 1s turn! (noughts)");
-        System.out.println("Enter first coordinate");
-        oRow = kb.nextInt();
-        System.out.println("Enter second coordinate");
-        oCol = kb.nextInt();
+        if (saveG = false) {
+            System.out.println("It is player 1s turn! (noughts)");
+            System.out.println("Enter first coordinate");
+            oRow = kb.nextInt();
+            System.out.println("Enter second coordinate");
+            oCol = kb.nextInt();
+        }
     }
     
     public int getOcoord1() {
@@ -106,14 +100,16 @@ public class noughtsCrosses
     }
     
     public void player2Turn() {
-        System.out.println("It is player 2s turn! (crosses)");
-        System.out.println("Enter first coordinate");
-        xRow = kb.nextInt();
-        if (xRow > 4) {
-            System.out.println("Coordinate out of bounds, please retry!");
+        if (saveG = false) {
+            System.out.println("It is player 2s turn! (crosses)");
+            System.out.println("Enter first coordinate");
+            xRow = kb.nextInt();
+            if (xRow > 4) {
+                System.out.println("Coordinate out of bounds, please retry!");
+            }
+            System.out.println("Enter second coordinate");
+            xCol = kb.nextInt();
         }
-        System.out.println("Enter second coordinate");
-        xCol = kb.nextInt();
     }
     
     public int getXcoord1() {
@@ -192,7 +188,8 @@ public class noughtsCrosses
     public void saveGame() {
         System.out.println("Checkpoint! To save game enter 'yes', otherwise game will continue");
         String hrm = kb.nextLine();
-        if (hrm == "yes") {
+        if (hrm.equals("yes")) {
+            saveG = true;
             System.out.println("Now saving game!");
             try {
                 FileWriter fw = new FileWriter(save);
@@ -208,12 +205,14 @@ public class noughtsCrosses
                 System.out.println("Error: game could not be saved");
             }
         }
+        saveG = false;
     }
     
     public void loadGame() {
         System.out.println("Before we begin, would you like to load your last saved game?");
         String load = kb.nextLine();
-        if (load == "yes") {
+        if (load.equals("yes")) {
+            System.out.println("Loading...");
             try { 
                 Scanner read = new Scanner(save);
                 while (read.hasNextLine()) {
@@ -223,7 +222,7 @@ public class noughtsCrosses
                 System.out.println("Error: could not read file");
             }
         } else {
-            System.out.println("Okay! Starting new game...");
+            System.out.println("Starting new game...");
         }
     }
 }
