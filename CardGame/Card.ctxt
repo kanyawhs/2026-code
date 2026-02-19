@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Card
+comment0.text=\r\n\ This\ provides\ the\ constructor\ with\ attributes\ for\ generating\ cards\r\n\ \r\n\ Issues\:\r\n\ Can't\ make\ a\ new\ card\ via\ this\ class\ alone\ (program\ doesn't\ recognise\ contents\ in\ arrays)\r\n\r\n\ @author\ Kanya\ Farley\r\n\ @version\ 20/02/2026\r\n
+comment1.params=faces\ suits
+comment1.target=Card(java.lang.String,\ java.lang.String)
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Card\r\n
+comment2.params=
+comment2.target=java.lang.String\ getFace()
+comment3.params=
+comment3.target=java.lang.String\ getSuit()
+numComments=4
