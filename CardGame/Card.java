@@ -12,10 +12,11 @@ public class Card {
     /**
      * Constructor for objects of class Card
      */
-    public Card(String faces, String suits, int value)
+    public Card(String faces, String suits)
     {
         this.faces = faces;
         this.suits = suits;
+        this.value = valueOfFace();
     }
     
     public String getFace() {
