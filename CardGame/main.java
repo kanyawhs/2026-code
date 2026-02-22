@@ -11,8 +11,10 @@
 import java.util.Random;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 public class main
 {
+    Scanner kb = new Scanner(System.in);
     /**
      * Constructor for objects of class main
      */
