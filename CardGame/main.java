@@ -19,7 +19,6 @@ public class main
         Random random = new Random();
         String[] suits = {"Hearts", "Clubs", "Diamonds", "Spades"};
         String[] faces = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
-        Scanner kb = new Scanner(System.in);
         
         // prints random face
         String randomFace = faces[random.nextInt(faces.length)];
@@ -48,8 +47,19 @@ public class main
         Card card4 = new Card();
         System.out.println(card4);
         
+        userPrintsCards();
+        
+    }
+    
+    public static void userPrintsCards () {
+        Scanner kb = new Scanner(System.in);
         System.out.println("How many cards would you like me to print?");
         int cards = kb.nextInt();
+        ArrayList<String>cardCreator = new ArrayList<String>();
+        for (int i = 0; i < cards; i++) {
+            cardCreator.add("card" + i);
+        }
+        System.out.println(cardCreator);
     }
     
     
