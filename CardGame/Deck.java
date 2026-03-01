@@ -3,7 +3,7 @@
  * Write a description of class Deck here.
  *
  * @author Kanya Farley
- * @version 27/2/26
+ * @version 02/03/2026
  */
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -35,7 +35,8 @@ public class Deck
             for (int j = 0; j < face.length; j++) {
                 Card currentCard = new Card (suit[i], face[j]);
                 myDeck.add(currentCard);
-                System.out.println(currentCard.getSuit() + currentCard.getFace());
+                //System.out.println(currentCard.getSuit() + currentCard.getFace());
+                
             }
         }
 
@@ -47,5 +48,11 @@ public class Deck
     
     public Card popCard() {
         return (myDeck.remove(0));
+    }
+    
+    public void printDeck() {
+        for (int i = 0; i < myDeck.size(); i++) {
+            System.out.println(myDeck.get(i).getCard());
+        }
     }
 }

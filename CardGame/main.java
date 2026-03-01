@@ -3,7 +3,7 @@
  * This creates new objects in cahoots with the Card class
  *
  * @author Kanya Farley
- * @version 27/02/2026
+ * @version 02/03/2026
  */
 import java.util.Random;
 import java.util.ArrayList;
@@ -33,15 +33,20 @@ public class main
         System.out.println(card1.getFace() + " " + card1.getSuit());
         System.out.println(" (Value: " + card1.getValue() + ")");
 
-        Card card2 = new Card();
+        /* Card card2 = new Card();
         System.out.println(card2);
 
         Card card3 = new Card();
         System.out.println(card3);
 
         Card card4 = new Card();
-        System.out.println(card4);
-
+        System.out.println(card4); */
+        
+        Deck hi = new Deck();
+        hi.printDeck();
+        hi.shuffle();
+        hi.printDeck();
+        
     }
     
     // this lets user decide number of random cards printed

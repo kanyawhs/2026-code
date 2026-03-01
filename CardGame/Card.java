@@ -6,7 +6,7 @@
  * .getValue() returns 0 whereas .valueOfFace() returns the right value!
  *
  * @author Kanya Farley
- * @version 26/02/2026
+ * @version 02/03/2026
  */
 import java.util.Random;
 import java.util.ArrayList;
@@ -87,5 +87,9 @@ public class Card {
     
     public int getValue() { // returns 0 every time... somethings wrong
         return(this.value);
+    }
+    
+    public String getCard() {
+        return(this.suits + " of " + this.faces);
     }
 }
