@@ -6,7 +6,7 @@
  * not sure how to do toString method yet
  *
  * @author Kanya Farley
- * @version 05/03/26 2
+ * @version 06/03/2026
  */
 public class CD
 {
@@ -45,7 +45,8 @@ public class CD
         return(this.releaseYear);
     }
     
-    /*public String toString() {
-        
-    }*/
+    public String toString() {
+        String CDinfo = ("Artist name : " + this.artistName + ", Album name: " + ", release year: " + releaseYear + ", run time in seconds: " + runTime);
+        return(CDinfo);
+    }
 }
