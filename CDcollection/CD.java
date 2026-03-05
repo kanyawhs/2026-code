@@ -1,3 +1,4 @@
+
 /**
  * This is the blueprint for CD objects
  *
