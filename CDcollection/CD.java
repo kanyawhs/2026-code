@@ -1,9 +1,12 @@
 
 /**
  * This is the blueprint for CD objects
+ * 
+ * Current problems:
+ * not sure how to do toString method yet
  *
  * @author Kanya Farley
- * @version 05/03/26
+ * @version 05/03/26 2
  */
 public class CD
 {
@@ -41,4 +44,8 @@ public class CD
     public int getRunTime() {
         return(this.releaseYear);
     }
+    
+    /*public String toString() {
+        
+    }*/
 }

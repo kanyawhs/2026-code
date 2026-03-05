@@ -1,9 +1,14 @@
 
 /**
- * Write a description of class CDArchive here.
+ * Creates objects for CD class and stores in a file
+ * 
+ * Current problems:
+ * Can't seem to print CD components??
+ * not sure how to load file yet
+ * icba
  *
  * @author Kanya Farley
- * @version 05/03/2026
+ * @version 05/03/2026 2
  */
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -45,7 +50,37 @@ public class CDArchive
         }
     }
     
-    void loadFromFile(String CDs) {
+    void saveToFile (String CDs) {
+        File myFile = new File ("CDs.csv");
+        try {
+            FileWriter writer = new FileWriter(myFile);
+            for (CD thisCD : albums) {
+                writer.write(thisCD.getArtistName() + ", " + thisCD.getAlbumName() + ", " + thisCD.getReleaseYear() + ", " + thisCD.getRunTime());
+            }
+            writer.flush();
+            writer.close();
+        } catch (IOException e) {
+            System.out.println("Sorry! Couldn't write file");
+        }
+    }
+    
+    void loadFromFIle (String CDs) {
+        try {
+            File myFile = new File ("CDs.csv");
+            Scanner read = new Scanner(myFile);
+            
+            while (read.hasNextLine()) {
+                String line = read.nextLine();
+                String [] tempCD = line.split(", ");
+                //int [] tempCDInt = line.split(", "); //? idk what im doing icl
+                //albums.add(new CD(tempCD[0], tempCD[1], tempCDInt[3], tempCDInt[4]));
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    
+    void addCD(CD c) {
         
     }
 }
