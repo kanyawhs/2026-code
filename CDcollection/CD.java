@@ -46,7 +46,7 @@ public class CD
     }
     
     public String toString() {
-        String CDinfo = ("Artist name : " + this.artistName + ", Album name: " + this.albumName + ", release year: " + this.releaseYear + ", run time in seconds: " + this.runTime);
+        String CDinfo = ("Artist name : " + this.artistName + ", Album name: " + this.albumName + ", Release year: " + this.releaseYear + ", Run time in seconds: " + this.runTime);
         return(CDinfo);
     }
 }
