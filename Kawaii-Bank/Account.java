@@ -1,0 +1,47 @@
+
+/**
+ * Blueprint for account objects.
+ *
+ * @author Kanya Farley
+ * @version 1 19/03/26
+ */
+public class Account
+{
+    // not sure what to make private yet...
+    String customerName;
+    String accountNumber;
+    String customerAddress;
+    String accountType;
+    double currentBalance;
+    /**
+     * Constructor for objects of class Account
+     */
+    public Account(String customerName, String accountNumber, String customerAddress, String accountType, double currentBalance)
+    {
+        this.customerName = customerName;
+        this.accountNumber = accountNumber;
+        this.customerAddress = customerAddress;
+        this.accountType = accountType;
+        this.currentBalance = currentBalance;
+    }
+    
+    public String getCustomerName() {
+        return(this.customerName);
+    }
+    
+    public String getAccountNumber() {
+        return(this.accountNumber);
+    }
+    
+    public String getCustomerAddress() {
+        return(this.customerAddress);
+    }
+    
+    public String getAccountType() {
+        return(this.accountType);
+    }
+    
+    public double getCurrentBalance() {
+        return(this.currentBalance);
+    }
+}
