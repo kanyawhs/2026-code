@@ -3,7 +3,7 @@
  * Blueprint for account objects.
  *
  * @author Kanya Farley
- * @version 1 19/03/26
+ * @version 2 20/03
  */
 public class Account
 {
@@ -43,5 +43,11 @@ public class Account
     
     public double getCurrentBalance() {
         return(this.currentBalance);
+    }
+    
+    public String toString() {
+        String accountInfo = ("Customer Name: " + this.customerName +", Account Number: " + this.accountNumber + ", Customer Address: " +
+        this.customerAddress + ", Account Type: " + this.accountType + ", Current Balance: " + currentBalance);
+        return(accountInfo);
     }
 }

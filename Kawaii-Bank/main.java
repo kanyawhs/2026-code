@@ -3,7 +3,7 @@
  * Creates and manages accounts
  *
  * @author Kanya Farley
- * @version 1 19/03
+ * @version 2 20/03
  */
 import java.util.Scanner;
 import java.util.Random;
@@ -25,13 +25,17 @@ public class main
         System.out.println("4 : Deposit into account");
         System.out.println("5 : Withdraw from account");
         String userAction = kb.nextLine();
-
+        
         if (userAction.equals("1")) {
             createAccount();
         } else if (userAction.equals("2")) {
             
         } else {
-            System.out.println("Please enter 1 in accordance with program options.");
+            String regex = ("1|2|3|4|5");
+            while (!userAction.matches(regex) && userAction.length() > 1) { // ensures user hasn't entered an option and can matche no more than 1 character
+                System.out.println("Please enter '1', '2', '3', '4', or '5' in accordance with program options.");
+                userAction = kb.nextLine();
+            }
         }
     }
 
@@ -52,8 +56,8 @@ public class main
         String accountType = kb.nextLine();
         System.out.println();
 
-        // account number
-        accountType.toLowerCase();
+        // defines account number based on type
+        accountType = accountType.toLowerCase();
         String accountNumberType = " ";
         while (accountNumberType.equals(" ")) {
             if (accountType.equals("everyday")) {
@@ -65,10 +69,14 @@ public class main
                 accountType = kb.nextLine();
             }
         }
-
+        
+        // generates random 6 digit number for account
         Random random = new Random();
-        int randomAccountNumber = random.nextInt() + random.nextInt() + random.nextInt() + random.nextInt() + random.nextInt() + random.nextInt();
-
+        int [] randomAccountNumber = new int[6];
+        for (int i = 0; i <= 5; i++) {
+            randomAccountNumber[i] =+ random.nextInt();
+        }
+        
         String accountNumber = "08-0101-0" + randomAccountNumber + accountNumberType;
 
         System.out.print("Enter amount to deposit: $");
@@ -77,5 +85,11 @@ public class main
         Account newAccount = new Account(customerName, accountNumber, customerAddress, accountType, currentBalance);
         System.out.println(customerName + ", " + accountNumber + ", " + customerAddress + ", " + accountType + ", " + "$" + currentBalance);
         accounts.addAccount(newAccount);
+        System.out.println("Account added to list: ");
+        accounts.displayAll();
+        accounts.saveToFile(" ");
     }
+    
+    
+    
 }

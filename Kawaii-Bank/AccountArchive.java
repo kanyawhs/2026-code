@@ -3,7 +3,7 @@
  * Svaes and stores accounts
  *
  * @author Kanya Farley
- * @version 1 19/03/26
+ * @version 2 20/03
  */
 import java.util.ArrayList;
 import java.io.IOException;
@@ -51,5 +51,11 @@ public class AccountArchive
     
     void addAccount(Account currentAccount) {
         accounts.add(currentAccount);
+    }
+    
+    void displayAll() {
+        for (Account currentAccount: accounts) {
+            System.out.println(currentAccount.toString());
+        }
     }
 }
