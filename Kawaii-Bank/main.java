@@ -7,7 +7,7 @@
  * Program gets confused about amount of items in accountarchive? txt file is fine
  *
  * @author Kanya Farley
- * @version 27/03
+ * @version 30/03
  */
 import java.util.Scanner;
 import java.util.Random;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class main
 {
     Scanner kb = new Scanner(System.in);
-    AccountArchive accounts = new AccountArchive();
+    Bank accounts = new Bank();
     final double EVERYDAY_SAVINGS_MIN = 0;
     final double CURRENT_MIN = -1000;
     final double MAX_WITHDRAWAL = 5000;
@@ -91,11 +91,18 @@ public class main
 
         System.out.print("Enter amount to deposit: $");
         double currentBalance = kb.nextDouble();
-        //while (currentBalance == null) {
+        boolean balanceValidity = false;
+        while (!balanceValidity) {
             if (accountType.equals("everyday") && currentBalance < EVERYDAY_SAVINGS_MIN || accountType.equals("savings") && currentBalance < EVERYDAY_SAVINGS_MIN) {
                 System.out.println("Sorry, minimum balance for " + accountType + " account is " + EVERYDAY_SAVINGS_MIN);
+                currentBalance = kb.nextDouble();
+            } else if (accountType.equals("current") && currentBalance < CURRENT_MIN) {
+                System.out.println("Sorry, minimum balance for " + accountType + " account is " + CURRENT_MIN);
+                currentBalance = kb.nextDouble();
+            } else {
+                balanceValidity = true;
             }
-        //}
+        }
 
         // creating object, verifying, and saving
         Account newAccount = new Account(customerName, accountNumber, customerAddress, accountType, currentBalance);
@@ -122,7 +129,7 @@ public class main
     }
 
     public void depositToAccount() {
-
+        
     }
 
 }
